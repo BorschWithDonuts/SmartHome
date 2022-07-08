@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:label="Smart"
+        tools:context=".FirstFragment">
+
+    <TextView
+            android:id="@+id/textview_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Выберите раздел для управления"
+            android:textColor="#3ecbe7"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/button_first"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintVertical_bias="0.92"
+            />
+
+    <Button
+            android:id="@+id/button_first"
+            android:layout_width="256dp"
+            android:layout_height="48dp"
+            android:text="Двери"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintBottom_toTopOf="@+id/buttonLightingYard"
+            android:layout_marginBottom="24dp"
+            app:backgroundTint="#3ECBE7"/>
+
+    <Button
+            android:text="Освещение"
+            android:layout_width="256dp"
+            android:layout_height="48dp"
+            android:id="@+id/buttonLightingYard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            android:layout_marginBottom="100dp"
+            app:backgroundTint="#3ECBE7"/>
+
+    <ImageView
+            android:src="@drawable/main_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            tools:layout_editor_absoluteY="-2dp"
+            tools:layout_editor_absoluteX="0dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

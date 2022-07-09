@@ -14,6 +14,8 @@ import com.example.smarthome.databinding.LightingWidgetBinding
 class LightingWidget : Fragment() {
 
     private var _binding: LightingWidgetBinding? = null
+    private var _yardLighting = false
+    private var _courtyardLighting = false
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -32,8 +34,32 @@ class LightingWidget : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonTest.setOnClickListener {
-            findNavController().navigate(R.id.action_LightingWidget_to_FirstFragment)
+        binding.buttonYardLighting.setOnClickListener {
+//            findNavController().navigate(R.id.action_LightingWidget_to_FirstFragment)
+            if (_yardLighting) {
+                _yardLighting = false
+                binding.buttonYardLighting.text = "Включить"
+                binding.imageViewYardLighting.setImageResource(R.drawable.turn_off_lights)
+            }
+            else {
+                _yardLighting = true
+                binding.buttonYardLighting.text = "Выключить"
+                binding.imageViewYardLighting.setImageResource(R.drawable.turn_on_lights)
+            }
+        }
+
+        binding.buttonCourtyardLighting.setOnClickListener {
+//            findNavController().navigate(R.id.action_LightingWidget_to_FirstFragment)
+            if (_courtyardLighting) {
+                _courtyardLighting = false
+                binding.buttonCourtyardLighting.text = "Включить"
+                binding.imageViewCourtyardLighting.setImageResource(R.drawable.turn_off_lights)
+            }
+            else {
+                _courtyardLighting = true
+                binding.buttonCourtyardLighting.text = "Выключить"
+                binding.imageViewCourtyardLighting.setImageResource(R.drawable.turn_on_lights)
+            }
         }
     }
 

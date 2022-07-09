@@ -14,6 +14,8 @@ import com.example.smarthome.databinding.FragmentSecondBinding
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
+    private var _gateOpened = false
+    private var _doorOpened = false
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -33,11 +35,31 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonControlGate.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            //findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            if (_gateOpened) {
+                _gateOpened = false
+                binding.buttonControlGate.text = "Открыть"
+                binding.imageViewGate.setImageResource(R.drawable.gate_closed)
+            }
+            else {
+                _gateOpened = true
+                binding.buttonControlGate.text = "Закрыть"
+                binding.imageViewGate.setImageResource(R.drawable.gate_open)
+            }
         }
 
         binding.buttonEntranceDoor.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            //findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            if (_doorOpened) {
+                _doorOpened = false
+                binding.buttonEntranceDoor.text = "Открыть"
+                binding.imageViewDoor.setImageResource(R.drawable.door_closed)
+            }
+            else {
+                _doorOpened = true
+                binding.buttonEntranceDoor.text = "Закрыть"
+                binding.imageViewDoor.setImageResource(R.drawable.door_open)
+            }
         }
     }
 

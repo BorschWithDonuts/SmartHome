@@ -19,9 +19,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.562"
-            app:layout_constraintVertical_bias="0.642"
+            app:layout_constraintVertical_bias="0.89"
             android:layout_marginStart="-18dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toTopOf="@+id/buttonDoorControl"/>
 
     <Button
             android:id="@+id/buttonDoorControl"
@@ -31,12 +31,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
-            android:layout_marginBottom="24dp"
             app:backgroundTint="#3ECBE7"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.773"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
+            app:layout_constraintVertical_bias="0.895"
+            app:layout_constraintBottom_toTopOf="@+id/buttonLightingYard"/>
     <Button
             android:text="Освещение"
             android:layout_width="256dp"
@@ -51,15 +49,15 @@
             app:layout_constraintVertical_bias="0.866"/>
 
     <ImageView
-            android:src="@drawable/main_logo"
-            android:layout_width="358dp"
-            android:layout_height="338dp"
+            android:src="@drawable/logo_smart_home"
+            android:layout_width="349dp"
+            android:layout_height="287dp"
             android:id="@+id/imageView"
-            app:srcCompat="@drawable/smart_home_logo"
+            app:srcCompat="@drawable/logo_smart_home"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.264"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"/>
+            app:layout_constraintBottom_toTopOf="@+id/textview_first"
+            tools:srcCompat="@drawable/logo_smart_home"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

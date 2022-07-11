@@ -5,8 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.smarthome.databinding.FragmentSecondBinding
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import kotlinx.coroutines.launch
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -16,6 +22,12 @@ class SecondFragment : Fragment() {
     private var _binding: FragmentSecondBinding? = null
     private var _gateOpened = false
     private var _doorOpened = false
+
+    private val _urlGateOpen = "http://192.168.1.55:5000/"
+    private val _urlGateClose = "http://192.168.1.55:5000/"
+
+    private val _urlDoorOpen = "http://192.168.1.55:5000/"
+    private val _urlDoorClose = "http://192.168.1.55:5000/"
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -40,11 +52,13 @@ class SecondFragment : Fragment() {
                 _gateOpened = false
                 binding.buttonControlGate.text = "Открыть"
                 binding.imageViewGate.setImageResource(R.drawable.gate_closed)
+                httpRequest(_urlGateOpen)
             }
             else {
                 _gateOpened = true
                 binding.buttonControlGate.text = "Закрыть"
                 binding.imageViewGate.setImageResource(R.drawable.gate_open)
+                httpRequest(_urlGateClose)
             }
         }
 
@@ -54,11 +68,13 @@ class SecondFragment : Fragment() {
                 _doorOpened = false
                 binding.buttonEntranceDoor.text = "Открыть"
                 binding.imageViewDoor.setImageResource(R.drawable.door_closed)
+                httpRequest(_urlDoorOpen)
             }
             else {
                 _doorOpened = true
                 binding.buttonEntranceDoor.text = "Закрыть"
                 binding.imageViewDoor.setImageResource(R.drawable.door_open)
+                httpRequest(_urlDoorClose)
             }
         }
     }
@@ -66,5 +82,16 @@ class SecondFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun httpRequest(url : String){
+        lifecycleScope.launch {
+            try {
+                val client = HttpClient(CIO)
+                client.get<String>(url)
+            } catch (e: Exception) {
+                println("Successfully failed with a ${e.javaClass}")
+            }
+        }
     }
 }

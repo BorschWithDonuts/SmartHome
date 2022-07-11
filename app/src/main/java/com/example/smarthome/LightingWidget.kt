@@ -30,10 +30,10 @@ class LightingWidget : Fragment() {
     private var _courtyardLighting = false
 
     private val _urlYardLightOn = "http://192.168.1.55:5000/"
-    private val _urlYardLightOff = URL("http://192.168.1.55:5000/")
+    private val _urlYardLightOff = "http://192.168.1.55:5000/"
 
-    private val _urlCourtyardLightOn = URL("http://192.168.1.55:5000/")
-    private val _urlCourtyardLightOff = URL("http://192.168.1.55:5000/")
+    private val _urlCourtyardLightOn = "http://192.168.1.55:5000/"
+    private val _urlCourtyardLightOff = "http://192.168.1.55:5000/"
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -59,22 +59,14 @@ class LightingWidget : Fragment() {
                 binding.buttonYardLighting.text = "Включить"
                 binding.imageViewYardLighting.setImageResource(R.drawable.turn_off_lights)
 
-                lifecycleScope.launch {
-                    val client = HttpClient(CIO)
-                    val response: HttpResponse = client.get(_urlYardLightOn)
-                    client.close()
-                }
+                httpRequest(_urlYardLightOn)
             }
             else {
                 _yardLighting = true
                 binding.buttonYardLighting.text = "Выключить"
                 binding.imageViewYardLighting.setImageResource(R.drawable.turn_on_lights)
 
-                lifecycleScope.launch {
-                    val client = HttpClient(CIO)
-                    val response: HttpResponse = client.get(_urlYardLightOff)
-                    client.close()
-                }
+                httpRequest(_urlCourtyardLightOn)
             }
         }
 
@@ -84,13 +76,15 @@ class LightingWidget : Fragment() {
                 _courtyardLighting = false
                 binding.buttonCourtyardLighting.text = "Включить"
                 binding.imageViewCourtyardLighting.setImageResource(R.drawable.turn_off_lights)
-                _urlCourtyardLightOn.openConnection()
+
+                httpRequest(_urlCourtyardLightOn)
             }
             else {
                 _courtyardLighting = true
                 binding.buttonCourtyardLighting.text = "Выключить"
                 binding.imageViewCourtyardLighting.setImageResource(R.drawable.turn_on_lights)
-                _urlCourtyardLightOff.openConnection()
+
+                httpRequest(_urlCourtyardLightOff)
             }
         }
     }
@@ -98,5 +92,16 @@ class LightingWidget : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun httpRequest(url : String){
+        lifecycleScope.launch {
+            try {
+                val client = HttpClient(CIO)
+                client.get<String>(url)
+            } catch (e: Exception) {
+                println("Successfully failed with a ${e.javaClass}")
+            }
+        }
     }
 }

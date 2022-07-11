@@ -7,17 +7,16 @@
 
     <Button
             android:text="Включить"
-            android:layout_width="256dp"
+            android:layout_width="196dp"
             android:layout_height="48dp"
             android:id="@+id/buttonYardLighting"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.922"
+            app:layout_constraintHorizontal_bias="0.786"
             app:layout_constraintVertical_bias="0.262"
             app:backgroundTint="#3ECBE7"/>
-
     <TextView
             android:text="Управляйте светом в заданных зонах"
             android:textColor="#3ecbe7"
@@ -56,9 +55,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.611"
+            app:layout_constraintHorizontal_bias="0.722"
             app:layout_constraintVertical_bias="0.179"/>
-
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,7 +72,7 @@
 
     <Button
             android:text="Включить"
-            android:layout_width="256dp"
+            android:layout_width="196dp"
             android:layout_height="48dp"
             android:id="@+id/buttonCourtyardLighting"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,9 +80,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0.499"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.896"
+            app:layout_constraintHorizontal_bias="0.786"
             app:backgroundTint="#3ECBE7"/>
-
     <TextView
             android:text="Освещение гаража"
             android:textColor="#3ecbe7"
@@ -96,6 +93,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.574"
+            app:layout_constraintHorizontal_bias="0.678"
             app:layout_constraintVertical_bias="0.408"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

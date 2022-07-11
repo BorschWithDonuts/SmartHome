@@ -18,31 +18,28 @@
 
     <Button
             android:text="Открыть"
-            android:layout_width="256dp"
+            android:layout_width="196dp"
             android:layout_height="48dp"
             android:id="@+id/buttonControlGate"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.896"
+            app:layout_constraintHorizontal_bias="0.414"
             app:backgroundTint="#3ECBE7"
             app:iconTint="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.272"/>
-
+            app:layout_constraintVertical_bias="0.272" app:layout_constraintStart_toEndOf="@+id/imageViewGate"/>
     <Button
             android:text="Открыть"
-            android:layout_width="256dp"
+            android:layout_width="196dp"
             android:layout_height="48dp"
             android:id="@+id/buttonEntranceDoor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.896"
+            app:layout_constraintHorizontal_bias="0.414"
             app:backgroundTint="#3ECBE7"
             app:layout_constraintVertical_bias="0.486"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
+            app:layout_constraintStart_toEndOf="@+id/imageViewDoor"/>
     <TextView
             android:text="Выберите дверь, чтобы ее открыть"
             android:textColor="#3ecbe7"
@@ -104,9 +101,8 @@
             android:id="@+id/textViewEntranceDoor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.721"
+            app:layout_constraintHorizontal_bias="0.446"
             app:layout_constraintVertical_bias="0.395"
             app:textAllCaps="false"
             android:padding="10dp"
@@ -115,5 +111,5 @@
             android:paddingTop="10dp"
             android:paddingEnd="10dp"
             android:paddingRight="10dp"
-            android:paddingBottom="10dp"/>
+            android:paddingBottom="10dp" app:layout_constraintStart_toEndOf="@+id/imageViewDoor"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
